@@ -1,71 +1,55 @@
-1. Check Hardware Compatibility:
+# Hackintosh Setup Guide
 
-Verify if your PC hardware is compatible with macOS. Not all components work with macOS, so it's crucial to research and ensure compatibility.
+## 1. Check Hardware Compatibility
+- Verify if your PC hardware is compatible with macOS. Ensure compatibility for:
+  - **CPU (Central Processing Unit):** Check CPU compatibility for macOS. Refer to the Dortania guide for CPU-specific instructions.
+  - **GPU (Graphics Processing Unit):** Identify your GPU model and ensure it's compatible with macOS. AMD GPUs are generally more compatible.
+  - **Wi-Fi Chipset:** Check Wi-Fi chipset model. Replace with a macOS-compatible chipset if necessary.
+  - **Ethernet:** Verify compatibility. Most built-in Ethernet adapters work.
+  - **Audio:** Check your motherboard's audio chipset. Some may require additional kexts.
+  - **Motherboard:** Verify motherboard compatibility. Refer to Dortania or Hackintosh forums for recommendations.
+  - **RAM and Storage:** Ensure sufficient RAM and storage space.
+  - **Bluetooth:** Confirm Bluetooth chipset compatibility.
+  - **Other Components:** Check compatibility for webcams, card readers, and peripherals.
 
-Check the following hardware components for compatibility:
+## 2. Gather Necessary Files
+- Download OpenCore bootloader from the [Dortania website](https://dortania.github.io/OpenCore-Install-Guide/).
+- Choose x32 or x64 based on your PC's architecture:
+  - **x32 (32-bit):** For 32-bit UEFI firmware (less common).
+  - **x64 (64-bit):** For 64-bit UEFI firmware (modern PCs).
+- Follow Dortania's installation instructions.
 
-CPU (Central Processing Unit): Determine your CPU model. Some CPUs work seamlessly with macOS, while others may require extra steps or patches. Intel and AMD CPUs have different levels of support, so be sure to check if your CPU is compatible with macOS. Refer to the Dortania guide or online resources for compatibility lists and instructions.
+## 3. Configure OpenCore
+- Follow Dortania's guide for configuring OpenCore based on your hardware.
 
-GPU (Graphics Processing Unit): Identify your GPU model. NVIDIA GPUs have limited support in newer macOS versions, while AMD GPUs are generally more compatible. For the best experience, it's recommended to use an AMD GPU or onboard Intel graphics if your CPU supports it. Be aware that some macOS versions may require specific GPU models or patches for full functionality.
+## 4. BIOS/UEFI Settings
+- Access BIOS/UEFI settings and configure as specified in Dortania's guide.
+- Disable secure boot, enable AHCI mode, and adjust other relevant options.
 
-Wi-Fi Chipset: Check your Wi-Fi chipset model. macOS has limited support for Wi-Fi chipsets, and many may not work without additional drivers or hardware replacements. You might need to replace your Wi-Fi card with one that is natively supported by macOS.
+## 5. Create EFI Partition
+- Create an EFI partition on your USB drive and place OpenCore files in it.
 
-Ethernet: Verify your Ethernet adapter's compatibility. Most built-in Ethernet adapters on motherboards should work without issues, but it's still a good idea to double-check.
+## 6. Addressing "Error 1004" (if encountered)
+- If you face "Error 1004" during macOS installation:
+  - Unplug non-essential devices (monitors, audio adapters, peripherals).
+  - Boot PC, enter BIOS/UEFI with the keyboard plugged in.
+  - Boot macOS installer USB.
+  - Unplug the keyboard once macOS installer boots.
+  - Plug in only the mouse during installation.
 
-Audio: Determine your motherboard's audio chipset model. Some audio chipsets may require additional kexts (kernel extensions) to work correctly. Look for Hackintosh-specific audio solutions if needed.
+## 7. Boot from USB
+- Insert your USB installer and select it as the boot device from the boot menu (F12, F8, etc.).
 
-Motherboard: Check the compatibility of your motherboard. Motherboard chipsets, BIOS/UEFI settings, and built-in components can significantly impact Hackintosh compatibility. Refer to the Dortania guide or Hackintosh forums for recommended motherboards.
+## 8. Install macOS
+- Boot into the macOS installer from USB.
+- Format the target drive using Disk Utility as GUID Partition Map with Mac OS Extended (Journaled) or APFS.
+- Install macOS on the formatted drive.
 
-RAM and Storage: macOS is generally compatible with standard RAM and storage devices. However, it's essential to have enough RAM and storage space for your intended macOS usage.
+## 9. Post-installation Setup
+- Boot macOS from USB, then install OpenCore on the internal drive.
+- Configure necessary kexts and settings for hardware compatibility.
 
-Bluetooth: If you need Bluetooth functionality, identify your Bluetooth chipset. Not all Bluetooth chipsets are compatible with macOS. Consider using a compatible USB Bluetooth dongle if needed.
+## 10. Troubleshooting
+- Be prepared for potential issues during and after installation. Consult Dortania's guide for troubleshooting.
 
-Other Components: Depending on your specific hardware setup, you may need to check compatibility for additional components like webcams, card readers, and peripherals.
-
-Check Online Resources: Research your hardware on Hackintosh forums, websites, or community databases to see if others have successfully set up Hackintosh systems with similar components. Dortania's guide may also provide information on specific hardware considerations.
-
-2. Gather Necessary Files:
-
-Download the latest version of OpenCore bootloader from the Dortania website (https://dortania.github.io/OpenCore-Install-Guide/).
-When you download OpenCorePkg, you will find two versions: x32 and x64. The choice between these versions depends on your PC's architecture.
-After selecting the appropriate version for your PC's UEFI firmware, proceed with the installation of OpenCore as outlined in the Dortania guide. This will include creating the necessary EFI folder that the PC interprets as the UEFI boot mode.
-
-x32 (32-bit): Choose the x32 version if your PC uses a 32-bit UEFI firmware (rare for modern PCs). Generally, most modern PCs use 64-bit UEFI firmware, so x32 is less common.
-x64 (64-bit): Select the x64 version if your PC uses a 64-bit UEFI firmware. This is the more common and modern UEFI firmware type.
-
-3. Configure OpenCore:
-
-Dortania's guide will provide you with the necessary configuration files and instructions for setting up OpenCore. Follow it carefully.
-4. BIOS/UEFI Settings:
-
-Access your motherboard's BIOS/UEFI settings and configure them as specified in the Dortania guide. This typically involves disabling secure boot, enabling AHCI mode for SATA devices, and setting other relevant options.
-5. Create EFI Partition:
-
-Create an EFI partition on your USB drive and place the necessary OpenCore files in it.
-6. Addressing "Error 1004" (if encountered):
-
-If you encounter "Error 1004" during macOS installation, it may be related to USB device interference.
-Unplug all non-essential devices such as additional monitors, audio adapters, unnecessary peripherals, and USB hubs from your PC, leaving only the essentials like the keyboard and mouse connected.
-Boot your PC and enter the BIOS/UEFI settings with your keyboard plugged in.
-Boot the macOS installer USB.
-Once the macOS installer boots successfully, unplug the keyboard again.
-Only plug in the mouse for input during the installation process.
-
-7. Boot from USB:
-
-Insert your USB installer into your Hackintosh system.
-Access the boot menu (usually by pressing a key like F12 or F8 during startup) and select the USB drive as the boot device.
-
-8. Install macOS:
-
-Boot into the macOS installer from the USB drive.
-Format the target drive using Disk Utility as GUID Partition Map and Mac OS Extended (Journaled) or APFS.
-Install macOS on the formatted drive.
-9. Post-installation Setup:
-
-After macOS is installed, boot into it using your USB drive, and install OpenCore on the internal drive.
-Configure necessary kexts (drivers) and other settings to make your hardware work correctly.
-10. Troubleshooting:
-- Be prepared for potential issues during and after installation. The Dortania guide has troubleshooting sections to help you resolve common problems.
-
-Please note that Hackintoshing is not guaranteed to work perfectly, and it may require ongoing maintenance and updates as macOS and your hardware change. Additionally, it's essential to respect Apple's terms and conditions and the legality of creating a Hackintosh in your jurisdiction.
+**Note:** Hackintoshing may not work perfectly, and it may require ongoing maintenance. Ensure you respect Apple's terms and the legality of creating a Hackintosh in your jurisdiction.
