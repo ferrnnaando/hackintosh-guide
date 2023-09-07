@@ -85,6 +85,5 @@
   - System stability issues.
   - Frequent updates and maintenance to keep your Hackintosh functioning.
 
-  It's essential to be patient and persistent when troubleshooting and be prepared for potential limitations in your Hackintosh setup.
+![image](https://github.com/ferrnnaando/hackintosh-guide/assets/77246868/5e363e03-f582-497b-a518-794930e3f002)
 
-**Note:** Hackintoshing may not work perfectly, and it may require ongoing maintenance. Ensure you respect Apple's terms and the legality of creating a Hackintosh in your jurisdiction.
