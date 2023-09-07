@@ -50,6 +50,10 @@
 - Configure necessary kexts and settings for hardware compatibility.
 
 ## 10. Troubleshooting
-- Be prepared for potential issues during and after installation. Consult Dortania's guide for troubleshooting.
+- Be aware that installing macOS through Hackintosh can be a challenging process and may initially result in an experience that doesn't resemble macOS. You may encounter:
+  - Aesthetic issues with graphics and user interface elements.
+  - Problems with hardware functionality like Wi-Fi, audio, or Bluetooth.
+  - System stability issues.
+  - Frequent updates and maintenance to keep your Hackintosh functioning.
 
-**Note:** Hackintoshing may not work perfectly, and it may require ongoing maintenance. Ensure you respect Apple's terms and the legality of creating a Hackintosh in your jurisdiction.
+  It's essential to be patient and persistent when troubleshooting and be prepared for potential limitations in your Hackintosh setup.
