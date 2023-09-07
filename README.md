@@ -1,4 +1,6 @@
-# Hackintosh Setup Guide
+# Hackintosh Setup Guide for Intel-based Systems
+
+**Disclaimer:** This guide is based on settings tested for Intel-based motherboards. Individual motherboard models may have slight variations in their BIOS options. Consult your motherboard's manual for specific instructions.
 
 ## 1. Check Hardware Compatibility
 - Verify if your PC hardware is compatible with macOS. Ensure compatibility for:
@@ -21,19 +23,38 @@
 - Create an EFI partition on your USB drive.
 - Place the necessary OpenCore files in the EFI partition.
 
-## 4. Configure OpenCore
+## 4. BIOS/UEFI Settings
+- Access your motherboard's BIOS/UEFI settings during system startup. This is typically done by pressing a specific key (e.g., F2, Del, or F12) when your computer boots. Refer to your motherboard's manual for the exact key and method.
+- In the BIOS/UEFI settings, make the following adjustments:
+
+  - **Disable Secure Boot:** Secure Boot restricts the loading of unsigned operating systems and drivers. Disable it to allow macOS to boot properly.
+
+  - **Disable Fast Boot:** This feature speeds up the boot process by skipping certain checks, but it can interfere with macOS installation. Disable it to ensure macOS compatibility.
+
+  - **Disable Compatibility Support Module (CSM):** CSM provides backward compatibility for older operating systems like Windows 7. However, macOS is designed to work in UEFI mode, so it's essential to disable CSM to prevent compatibility issues. GPU errors and stalls like `gIO` are common when this option is enabled.
+
+  - **Disable Serial/COM Port:** This is often not needed for Hackintosh and can cause conflicts. Disable it.
+
+  - **Disable Parallel Port:** Parallel ports are rarely used in modern computing and can cause issues with macOS. Disable this feature.
+
+  - **Disable VT-d (Virtualization Technology for Directed I/O):** VT-d can conflict with macOS. It should be disabled unless you set `DisableIoMapper` to `YES` in your OpenCore configuration.
+
+  - **Disable Thunderbolt:** Disable Thunderbolt during the initial macOS installation, as Thunderbolt can cause issues if not set up correctly. You can enable it later if needed.
+
+  - **Disable Intel SGX:** This feature is not typically needed for Hackintosh and can be disabled.
+
+  - **Disable Intel Platform Trust:** Platform Trust technology can interfere with macOS. Disable it.
+
+  - **Disable CFG Lock (MSR 0xE2 write protection):** This must be off for your Hackintosh to boot. If you can't find the option, enable `AppleCpuPmCfgLock` under `Kernel -> Quirks` in your OpenCore configuration.
+
+- Save your BIOS/UEFI settings and exit. Your computer will restart.
+
+## 5. Configure OpenCore
 - Customize the OpenCore configuration for your PC. Follow the Dortania guide to:
   - Add necessary kexts (drivers) to the Kexts folder.
   - Place ACPI files, if needed, in the ACPI folder.
   - Add specific files or patches to the Resources and Tools folders.
   - Edit the config.plist file according to your PC's requirements. Dortania provides explanations for each section.
-
-## 5. BIOS/UEFI Settings
-- Access your motherboard's BIOS/UEFI settings.
-- Configure settings as specified in Dortania's guide, including:
-  - Disabling secure boot.
-  - Enabling AHCI mode for SATA devices.
-  - Adjusting other relevant options.
 
 ## 6. Boot from USB
 - Insert your USB installer into your Hackintosh system.
@@ -43,7 +64,7 @@
 ## 7. Install macOS
 - Boot into the macOS installer from USB.
 - Use Disk Utility to erase a partition where macOS will be installed. Format it as Mac OS Extended (HFS+).
-- Install macOS on the formatted partition.
+- Proceed with the macOS installation on the formatted partition.
 
 ## 8. Addressing "Error 1004" (if encountered)
 - If you encounter "Error 1004" during macOS installation, follow these steps:
