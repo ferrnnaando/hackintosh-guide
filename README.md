@@ -17,16 +17,16 @@
 - Download OpenCore bootloader from the [Dortania website](https://dortania.github.io/OpenCore-Install-Guide/).
 - For USB drives with large partitions (+16GB), use Rufus or your system's partition eraser tool to create a macOS installer USB.
 
-## 3. Configure OpenCore
+## 3. Create EFI Partition
+- Create an EFI partition on your USB drive.
+- Place the necessary OpenCore files in the EFI partition.
+
+## 4. Configure OpenCore
 - Customize the OpenCore configuration for your PC. Follow the Dortania guide to:
   - Add necessary kexts (drivers) to the Kexts folder.
   - Place ACPI files, if needed, in the ACPI folder.
   - Add specific files or patches to the Resources and Tools folders.
   - Edit the config.plist file according to your PC's requirements. Dortania provides explanations for each section.
-
-## 4. Create EFI Partition
-- Create an EFI partition on your USB drive.
-- Place the necessary OpenCore files in the EFI partition.
 
 ## 5. BIOS/UEFI Settings
 - Access your motherboard's BIOS/UEFI settings.
