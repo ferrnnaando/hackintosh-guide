@@ -27,8 +27,12 @@ Check Online Resources: Research your hardware on Hackintosh forums, websites, o
 2. Gather Necessary Files:
 
 Download the latest version of OpenCore bootloader from the Dortania website (https://dortania.github.io/OpenCore-Install-Guide/).
-Obtain a macOS installer (e.g., Catalina, Big Sur, etc.) from the Mac App Store or other legitimate sources.
-Create a USB installer using a tool like "createinstallmedia" or "Disk Utility" on a real Mac.
+When you download OpenCorePkg, you will find two versions: x32 and x64. The choice between these versions depends on your PC's architecture.
+After selecting the appropriate version for your PC's UEFI firmware, proceed with the installation of OpenCore as outlined in the Dortania guide. This will include creating the necessary EFI folder that the PC interprets as the UEFI boot mode.
+
+x32 (32-bit): Choose the x32 version if your PC uses a 32-bit UEFI firmware (rare for modern PCs). Generally, most modern PCs use 64-bit UEFI firmware, so x32 is less common.
+x64 (64-bit): Select the x64 version if your PC uses a 64-bit UEFI firmware. This is the more common and modern UEFI firmware type.
+
 3. Configure OpenCore:
 
 Dortania's guide will provide you with the necessary configuration files and instructions for setting up OpenCore. Follow it carefully.
@@ -46,10 +50,12 @@ Boot your PC and enter the BIOS/UEFI settings with your keyboard plugged in.
 Boot the macOS installer USB.
 Once the macOS installer boots successfully, unplug the keyboard again.
 Only plug in the mouse for input during the installation process.
+
 7. Boot from USB:
 
 Insert your USB installer into your Hackintosh system.
 Access the boot menu (usually by pressing a key like F12 or F8 during startup) and select the USB drive as the boot device.
+
 8. Install macOS:
 
 Boot into the macOS installer from the USB drive.
